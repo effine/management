@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<!-- 核准 -->
+	<servlet>
+		<servlet-name>authServlet</servlet-name>
+		<servlet-class>cn.effine.auth.servlet.AuthServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>authServlet</servlet-name>
+		<url-pattern>/servlet/auth</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- 查看企业的详细信息 -->
+	<servlet>
+		<servlet-name>queryEnterprise</servlet-name>
+		<servlet-class>cn.effine.fe.servlet.QueryEnterpriseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>queryEnterprise</servlet-name>
+		<url-pattern>/servlet/queryEnterprise</url-pattern>
+	</servlet-mapping>
+		
+	<!-- 查看企业投资人的投资比例 -->
+	<servlet>
+		<servlet-name>viewScale</servlet-name>
+		<servlet-class>cn.effine.fe.servlet.ViewScaleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>viewScale</servlet-name>
+		<url-pattern>/servlet/viewScale</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 分页查询企业信息 -->
+	<servlet>
+		<servlet-name>pageQueryEnterprise</servlet-name>
+		<servlet-class>cn.effine.fe.servlet.PageQueryEnterpriseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>pageQueryEnterprise</servlet-name>
+		<url-pattern>/servlet/pageQueryEnterprise</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 保存企业信息以及企业和投资人的关系信息 -->
+	<servlet>
+		<servlet-name>saveEnterprise</servlet-name>
+		<servlet-class>cn.effine.fe.servlet.InsertEnterpriseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>saveEnterprise</servlet-name>
+		<url-pattern>/servlet/saveEnterprise</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 确认企业信息是否已经录入 -->
+	<servlet>
+		<servlet-name>selectEnterprise</servlet-name>
+		<servlet-class>cn.effine.fe.servlet.SelectEnterpriseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>selectEnterprise</servlet-name>
+		<url-pattern>/servlet/selectEnterprise</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- 身份认证过滤器 -->
+	<filter>
+		<filter-name>checkLoginFilter</filter-name>
+		<filter-class>cn.effine.filter.CheckLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>checkLoginFilter</filter-name>
+		<url-pattern>/servlet/*</url-pattern>
+		<url-pattern>*.jsp</url-pattern>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+	
+	<!-- 字符编码过滤器 -->
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>cn.effine.filter.CharacterEncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/servlet/*</url-pattern>
+	</filter-mapping> 
+	
+	
+	<!-- 查看企业投资人的详细信息 -->
+	<servlet>
+		<servlet-name>viewInv</servlet-name>
+		<servlet-class>cn.effine.basicinfo.servlet.SelectInvServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>viewInv</servlet-name>
+		<url-pattern>/servlet/viewInv</url-pattern>
+	</servlet-mapping>
+
+	<!-- 分页查询企业投资人信息，动态参数查询 ,重点重点重点重点重点重点重点重点重点重点重点重点重点重点重点重点重点-->
+	<servlet>
+		<servlet-name>pageQueryInv</servlet-name>
+		<servlet-class>cn.effine.basicinfo.servlet.PageQueryInvServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>pageQueryInv</servlet-name>
+		<url-pattern>/servlet/pageQueryInv</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 保存企业投资人信息 -->
+	<servlet>
+		<servlet-name>saveInv</servlet-name>
+		<servlet-class>cn.effine.basicinfo.servlet.InsertInvServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>saveInv</servlet-name>
+		<url-pattern>/servlet/saveInv</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 退出系统 -->
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>cn.effine.user.servlet.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/servlet/logout</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 系统用户登录 -->
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>cn.effine.user.servlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/servlet/login</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 验证用户表主键 -->
+	<servlet>
+		<servlet-name>checkUsercode</servlet-name>
+		<servlet-class>cn.effine.system.servlet.CheckUsercodeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>checkUsercode</servlet-name>
+		<url-pattern>/servlet/checkUsercode</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 删除用户信息 -->
+	<servlet>
+		<servlet-name>doDelete</servlet-name>
+		<servlet-class>cn.effine.system.servlet.DeleteUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>doDelete</servlet-name>
+		<url-pattern>/servlet/doDelete</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 修改用户信息 -->
+	<servlet>
+		<servlet-name>doUpdate</servlet-name>
+		<servlet-class>cn.effine.system.servlet.UpdateUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>doUpdate</servlet-name>
+		<url-pattern>/servlet/doUpdate</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 跳转到修改用户信息页面 -->
+	<servlet>
+		<servlet-name>goUpdate</servlet-name>
+		<servlet-class>cn.effine.system.servlet.SelectUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>goUpdate</servlet-name>
+		<url-pattern>/servlet/goUpdate</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 分页查询用户信息：物理分页 -->
+	<servlet>
+		<servlet-name>pageQueryUser</servlet-name>
+		<servlet-class>cn.effine.system.servlet.PageQueryUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>pageQueryUser</servlet-name>
+		<url-pattern>/servlet/pageQueryUser</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 保存用户信息的Servlet -->
+	<servlet>
+		<servlet-name>insertUser</servlet-name>
+		<servlet-class>cn.effine.system.servlet.InsertUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>insertUser</servlet-name>
+		<url-pattern>/servlet/insertUser</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 欢迎界面 -->
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+	
+</web-app>
