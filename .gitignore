@@ -1,9 +1,10 @@
 .settings/
-.gradle/
-build/
-target/
 bin/
+target/
 src/main/webapp/WEB-INF/classes/
+build/
+.gradle/
+gradle/
 
 .classpath
 .project
